@@ -1,0 +1,16 @@
+name: 'QMLDiff hasher'
+description: 'Hashes the files specified in an input, and pushes the files into a public repository'
+inputs:
+  qmd_hash_rules:
+    description: 'The QMD hashing rules. Format is: hashtab1,root-directory-ht1,a.qmd,b.qmd,c.qmd;hashtab2,root-ht2,d.qmd,e.qmd...'
+    required: true
+  dest_repo_name:
+    description: 'The name of the destination, public repo (f.ex. user/repository)'
+    required: true
+  repo_access_token:
+    description: 'The token to use when pushing to the public repo'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+
