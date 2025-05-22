@@ -24,12 +24,13 @@ cd /destrepo
 git config --global user.email "qmldiff-action@example.com"
 git config --global user.name "QMLDiff Hasher Action Bot"
 
-if [ -z "$(git diff)" ]; then
+git add .
+
+if [ -z "$(git diff --cached)" ]; then
 	echo "No changes detected. Exiting."
 	exit 0
 fi
 
-git add .
 git commit -m "Pull state from private repo"
 git remote set-url origin "https://a:$INPUT_REPO_ACCESS_TOKEN@github.com/$INPUT_DEST_REPO_NAME.git"
 git push origin $(git rev-parse --abbrev-ref HEAD)
