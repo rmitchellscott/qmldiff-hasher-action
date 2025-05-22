@@ -12,9 +12,9 @@ do
 	IFS=',' FILEDECLS=($entry)
 	HT=${FILEDECLS[0]}
 	ROOT=${FILEDECLS[1]}
-	mkdir -p "/destrepo/$ROOT"
 	for file in ${FILEDECLS[@]:2}
 	do
+        mkdir -p "$(dirname "/destrepo/$ROOT/$file")"
 		cp "./$file" "/destrepo/$ROOT/$file"
 		qmldiff hash-diffs "./$HT" "/destrepo/$ROOT/$file"
 	done
