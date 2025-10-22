@@ -33,11 +33,20 @@ jobs:
             # mirror git tag (e.g. 'v1.2.3')
             type=ref,event=tag
 
+            # semver with 'v' prefix (e.g. 'v1.2.3')
+            type=semver,pattern=v{{version}}
+
             # semver without the 'v' (e.g. '1.2.3')
             type=semver,pattern={{version}}
 
+            # major.minor with 'v' (e.g. 'v1.2')
+            type=semver,pattern=v{{major}}.{{minor}}
+
             # major.minor (e.g. '1.2')
             type=semver,pattern={{major}}.{{minor}}
+
+            # major only with 'v' (e.g. 'v1')
+            type=semver,pattern=v{{major}}
 
             # major only (e.g. '1')
             type=semver,pattern={{major}}
