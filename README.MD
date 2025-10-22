@@ -12,7 +12,7 @@ jobs:
         name: 'Update the public-facing repo'
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v3
+            - uses: actions/checkout@v5
             - uses: asivery/qmldiff-hasher-action@v1
               name: 'Run the action'
               with:
