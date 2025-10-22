@@ -10,7 +10,10 @@ inputs:
   repo_access_token:
     description: 'The token to use when pushing to the public repo'
     required: true
+  commit_message:
+    description: 'Custom commit message for the destination repo (defaults to timestamp-based message)'
+    required: false
 runs:
   using: 'docker'
-  image: 'Dockerfile'
+  image: 'docker://ghcr.io/rmitchellscott/qmldiff-hasher-action:v1'
 
