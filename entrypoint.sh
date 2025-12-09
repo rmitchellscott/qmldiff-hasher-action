@@ -17,7 +17,7 @@ do
 	do
         mkdir -p "$(dirname "/destrepo/$ROOT/$file")"
 		cp "./$file" "/destrepo/$ROOT/$file"
-		VERSION=$(grep "^VERSION " "/destrepo/$ROOT/$file" | awk '{print $2}')
+		VERSION=$(grep "^VERSION " "/destrepo/$ROOT/$file" | awk '{print $2}') || true
 		qmldiff hash-diffs "./$HT" "/destrepo/$ROOT/$file"
 		[ -n "$VERSION" ] && sed -i "s/\[\[17607111715072197239\]\]/$VERSION/g" "/destrepo/$ROOT/$file"
 	done
